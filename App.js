@@ -9,6 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 import ProfileScreen from './ProfileScreen';
+import ReelsScreen from './ReelsScreen';
 
 const { width, height } = Dimensions.get('window');
 
@@ -19,12 +20,12 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#050811" />
 
-      {/* 🌊 Liquid Glowing Ambient Orbs (Sheeshe ke piche chamakne wale liquid blobs) */}
+      {/* 🌊 Liquid Glowing Ambient Orbs */}
       <View style={styles.liquidOrbCyan} />
       <View style={styles.liquidOrbPurple} />
       <View style={styles.liquidOrbPink} />
 
-      {/* 🪟 Liquid Glass Header (Floating Frosted Glass) */}
+      {/* 🪟 Liquid Glass Header (Reels par header hide ya compact dikhega) */}
       <View style={styles.glassHeaderContainer}>
         <View style={styles.glassHeader}>
           <View style={styles.logoRow}>
@@ -44,6 +45,7 @@ export default function App() {
 
       {/* Main Content Area */}
       <View style={styles.contentArea}>
+        {/* 🏠 Home Tab */}
         {activeTab === 'Home' && (
           <View style={styles.glassCard}>
             <Text style={styles.cardEmoji}>🏠</Text>
@@ -54,16 +56,10 @@ export default function App() {
           </View>
         )}
 
-        {activeTab === 'Reels' && (
-          <View style={styles.glassCard}>
-            <Text style={styles.cardEmoji}>🎬</Text>
-            <Text style={styles.cardTitle}>Circular Reels</Text>
-            <Text style={styles.cardSubtitle}>
-              Full Screen vertical liquid video flow.
-            </Text>
-          </View>
-        )}
+        {/* 🎬 Real Reels Screen Connected */}
+        {activeTab === 'Reels' && <ReelsScreen />}
 
+        {/* ➕ Create Studio Tab */}
         {activeTab === 'Create' && (
           <View style={styles.glassCard}>
             <Text style={styles.cardEmoji}>➕</Text>
@@ -74,6 +70,7 @@ export default function App() {
           </View>
         )}
 
+        {/* 💬 Direct Messages Tab */}
         {activeTab === 'Chat' && (
           <View style={styles.glassCard}>
             <Text style={styles.cardEmoji}>💬</Text>
@@ -84,11 +81,11 @@ export default function App() {
           </View>
         )}
 
-        {/* 👤 Real Profile Screen connected directly */}
+        {/* 👤 Real Profile Screen Connected */}
         {activeTab === 'Profile' && <ProfileScreen />}
       </View>
 
-      {/* 🚀 Floating Liquid Glass Bottom Dock (Apple VisionOS Style) */}
+      {/* 🚀 Floating Liquid Glass Bottom Dock */}
       <View style={styles.dockWrapper}>
         <View style={styles.glassDock}>
           <TouchableOpacity onPress={() => setActiveTab('Home')} style={styles.dockItem}>
@@ -124,10 +121,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#050811', // Deep liquid space black
+    backgroundColor: '#050811',
   },
 
-  /* 🌌 Liquid Ambient Glow Orbs (Background me tairne wale) */
+  /* 🌌 Liquid Ambient Glow Orbs */
   liquidOrbCyan: {
     position: 'absolute',
     top: -40,
@@ -171,10 +168,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 18,
     paddingVertical: 12,
-    backgroundColor: 'rgba(15, 23, 42, 0.65)', // Glass Translucent
+    backgroundColor: 'rgba(15, 23, 42, 0.65)',
     borderRadius: 24,
     borderWidth: 1.2,
-    borderColor: 'rgba(255, 255, 255, 0.15)', // Glass shine border
+    borderColor: 'rgba(255, 255, 255, 0.15)',
   },
   logoRow: {
     flexDirection: 'row',
@@ -245,7 +242,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 
-  /* 🚀 Floating Liquid Glass Dock (Bottom Bar) */
+  /* 🚀 Floating Liquid Glass Dock */
   dockWrapper: {
     position: 'absolute',
     bottom: 20,
@@ -258,7 +255,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: 'rgba(15, 23, 42, 0.75)', // Glassy Dark Frost
+    backgroundColor: 'rgba(15, 23, 42, 0.75)',
     paddingVertical: 10,
     borderRadius: 35,
     borderWidth: 1.5,
